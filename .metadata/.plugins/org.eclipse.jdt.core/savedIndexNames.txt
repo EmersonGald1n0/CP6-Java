@@ -1,0 +1,6 @@
+INDEX VERSION 1.131+/Applications/ECLIPSE JAVA/Checkpoint6/.metadata/.plugins/org.eclipse.jdt.core
+1619481662.index
+2097976157.index
+2376267166.index
+1865797976.index
+3439679669.index

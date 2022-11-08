@@ -1,0 +1,62 @@
+package fiap.controller;
+
+import java.sql.*;
+import java.util.*;
+
+import fiap.model.*;
+
+public class FilmesController {
+
+	public String insereFilmes(String codigo, String titulo, String genero, String produtora) {
+		String resultado;
+		Connection con = Conexao.abrirConexao();
+		FilmesDAO fd = new FilmesDAO(con);
+		Filmes fil = new Filmes();
+		fil.setCodigo(codigo);
+		fil.setTitulo(titulo);
+		fil.setGenero(genero);
+		fil.setProdutora(produtora);
+		resultado = fd.inserir(fil);
+		Conexao.fecharConexao(con);
+		return resultado;
+	}
+
+	public String alteraFilmes(String codigo, String titulo, String genero, String produtora) {
+		String resultado;
+		Connection con = Conexao.abrirConexao();
+		FilmesDAO fd = new FilmesDAO(con);
+		Filmes fil = new Filmes();
+		fil.setCodigo(codigo);
+		fil.setTitulo(titulo);
+		fil.setGenero(genero);
+		fil.setProdutora(produtora);
+		resultado = fd.alterar(fil);
+		Conexao.fecharConexao(con);
+		return resultado;
+	}
+
+	public String excluiFilmes(String codigo) {
+		String resultado;
+		Connection con = Conexao.abrirConexao();
+		FilmesDAO fd = new FilmesDAO(con);
+		Filmes fil = new Filmes();
+		fil.setCodigo(codigo);
+		resultado = fd.excluir(fil);
+		Conexao.fecharConexao(con);
+		return resultado;
+	}
+
+	public ArrayList<String> listaUmCarro(String codigo) {
+		ArrayList<String> resultado = new ArrayList<String>();
+		Connection con = Conexao.abrirConexao();
+		FilmesDAO fd = new FilmesDAO(con);
+		resultado = fd.listarUm(codigo);
+		Conexao.fecharConexao(con);
+		if (resultado != null) {
+			return resultado;
+		} else {
+			return null;
+		}
+	}
+
+}
